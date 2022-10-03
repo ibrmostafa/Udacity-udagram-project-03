@@ -24,7 +24,7 @@ script:
   - docker build -t udagram-api-user:latest ./udagram-api-users
   - docker tag udagram-api-user:latest mostafaibrahim/udagram-api-user:latest
   - docker build -t udagram-frontend:latest ./udagram-frontend
-  - docker tag udagram-frontend:latest mostafaibrahim/udagram-frontend:v6
+  - docker tag udagram-frontend:latest mostafaibrahim/udagram-frontend:v7
   - docker build -t reverseproxy:latest ./udagram-reverseproxy
   - docker tag reverseproxy:latest mostafaibrahim/reverseproxy:latest
 
@@ -32,5 +32,5 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push mostafaibrahim/udagram-api-feed:latest
   - docker push mostafaibrahim/udagram-api-user:latest
-  - docker push mostafaibrahim/udagram-frontend:v6
+  - docker push mostafaibrahim/udagram-frontend:v7
   - docker push mostafaibrahim/reverseproxy:latest
