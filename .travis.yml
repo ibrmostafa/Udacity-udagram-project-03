@@ -19,14 +19,14 @@ before_script:
   - echo "no tests"
 
 script:
-  - docker build -t udagram-api-feed ./udagram-api-feed
-  - docker tag udagram-api-feed mostafaibrahim/udagram-api-feed:latest
-  - docker build -t udagram-api-user ./udagram-api-users
-  - docker tag udagram-api-user mostafaibrahim/udagram-api-user:latest
-  - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend mostafaibrahim/udagram-frontend:latest
-  - docker build -t reverseproxy ./udagram-reverseproxy
-  - docker tag reverseproxy mostafaibrahim/reverseproxy:latest
+  - docker build -t udagram-api-feed:latest ./udagram-api-feed
+  - docker tag udagram-api-feed:latest mostafaibrahim/udagram-api-feed:latest
+  - docker build -t udagram-api-user:latest ./udagram-api-users
+  - docker tag udagram-api-user:latest mostafaibrahim/udagram-api-user:latest
+  - docker build -t udagram-frontend:latest ./udagram-frontend
+  - docker tag udagram-frontend:latest mostafaibrahim/udagram-frontend:latest
+  - docker build -t reverseproxy:latest ./udagram-reverseproxy
+  - docker tag reverseproxy:latest mostafaibrahim/reverseproxy:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
