@@ -20,11 +20,11 @@ before_script:
 
 script:
 
-  - docker build -t udagram-frontend:latest ./udagram-frontend
-  - docker tag udagram-frontend:latest mostafaibrahim/udagram-frontend:v20
+  - docker build -t reverseproxy:latest ./udagram-reverseproxy
+  - docker tag reverseproxy:latest mostafaibrahim/reverseproxy:latest
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push mostafaibrahim/udagram-frontend:v20
+  - docker push mostafaibrahim/reverseproxy:latest
   
