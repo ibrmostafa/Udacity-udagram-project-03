@@ -20,10 +20,10 @@ before_script:
 
 script:
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend mostafaibrahim/udagram-frontend:v28
+  - docker tag udagram-frontend mostafaibrahim/udagram-frontend:v35
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push mostafaibrahim/udagram-frontend:v28
+  - docker push mostafaibrahim/udagram-frontend:v35
   
