@@ -19,12 +19,11 @@ before_script:
   - echo "no tests"
 
 script:
-
-  - docker build -t reverseproxy:latest ./udagram-reverseproxy
-  - docker tag reverseproxy:latest mostafaibrahim/reverseproxy:v1
+  - docker build -t udagram-frontend:latest .
+  - docker tag udagram-frontend:latest mostafaibrahim/udagram-frontend:v28
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push mostafaibrahim/reverseproxy:v1
+  - docker push mostafaibrahim/udagram-frontend:v28
   
